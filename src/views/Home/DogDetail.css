@@ -9,6 +9,10 @@
     margin: 20px;
 }
 
+.dog-image {
+    border: 2px black solid;
+}
+
 .dogs-list {
     display: flex;
     flex-direction: row;

@@ -28,7 +28,7 @@ export default function DogList() {
           <Link key={dog.id} to={`/dogs/${dog.id}`}>
             <div className='dog-card' key={dog.id}>
               <h3>Meet {dog.name}</h3>
-              <img width="150" height="200" src={dog.image}/>
+              <img className='dog-image' width="150" height="200" src={dog.image}/>
               <p>
                 {dog.name} is an {dog.age} year old {dog.breed}.
               </p>
