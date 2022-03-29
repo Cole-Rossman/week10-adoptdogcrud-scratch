@@ -5,19 +5,22 @@ import './DogDetail.css';
 export default function DogList() {
   const [dogs, setDogs] = useState([]);
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const dogsData = await fetchDogs();
         setDogs(dogsData);
+        setLoading(false);
       } catch (e) {
         setError(e.message);
       }
     };
     fetchData();
   }, []);
+
+  if (loading) return <h1>Loading...</h1>;
 
   return (
     <div>

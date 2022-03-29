@@ -13,16 +13,14 @@ export default function NewPage() {
 
   const history = useHistory();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async () => {
     try {
-      e.preventDefault();
       await createDog({ name, age, bio, breed, image });
       history.push('/');
     } catch (e) {
       setError('Something went wrong, please try again.');
     }
   };
-
 
   return (
     <div>

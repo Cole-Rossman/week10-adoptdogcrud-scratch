@@ -6,12 +6,14 @@ export default function DogDetail() {
   const { id } = useParams();
   const [dog, setDog] = useState(null);
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const dogData = await fetchDogId(id);
         setDog(dogData);
+        setLoading(false);
       } catch (e) {
         setError(e.message);
       }
@@ -19,7 +21,7 @@ export default function DogDetail() {
     fetchData();
   }, [id]);
 
-  if (!dog) return <h3>Loading...</h3>;
+  if (loading) return <h3>Loading...</h3>;
 
   return (
     <>
