@@ -14,3 +14,8 @@ export async function createDog(dog) {
   const resp = await client.from('dogs').insert(dog);
   return checkError(resp);
 }
+
+export async function updateDog(dog) {
+  const resp = await client.from('dogs').update(dog).match({ id: dog.id });
+  return checkError(resp);
+}
