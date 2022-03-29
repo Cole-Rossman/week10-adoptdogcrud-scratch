@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import DogForm from '../Admin/DogForm';
 import { createDog } from '../../services/dogs';
 
@@ -10,13 +9,13 @@ export default function NewPage() {
   const [breed, setBreed] = useState('');
   const [image, setImage] = useState('');
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState(false);
 
-  const history = useHistory();
 
   const handleSubmit = async () => {
     try {
       await createDog({ name, age, bio, breed, image });
-      history.push('/');
+      setSuccess(true);
     } catch (e) {
       setError('Something went wrong, please try again.');
     }
@@ -25,6 +24,7 @@ export default function NewPage() {
   return (
     <div>
       {error && (<p>{error} <span onClick={() => setError('')}>ERROR.</span></p>)}
+      {success && <h3>Great success, return to home page.</h3>}
       <DogForm
         {...{
           name,

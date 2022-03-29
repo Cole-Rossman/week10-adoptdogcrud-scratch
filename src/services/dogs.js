@@ -19,3 +19,8 @@ export async function updateDog(dog) {
   const resp = await client.from('dogs').update(dog).match({ id: dog.id });
   return checkError(resp);
 }
+
+export async function deleteDog(id) {
+  const resp = await client.from('dogs').delete().match({ id });
+  return checkError(resp);
+}
