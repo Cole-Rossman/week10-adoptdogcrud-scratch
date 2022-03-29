@@ -26,7 +26,7 @@ export default function NewPage() {
 
   return (
     <div>
-      {error && (<p>{error} <span onClick={() => setError('')}>ERROR</span></p>)}
+      {error && (<p>{error} <span onClick={() => setError('')}>ERROR.</span></p>)}
       <DogForm
         {...{
           name,
