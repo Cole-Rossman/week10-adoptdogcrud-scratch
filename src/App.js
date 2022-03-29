@@ -5,6 +5,7 @@ import NavHeader from './components/Controls/NavHeader';
 import Home from './views/Home/DogList';
 import DogDetail from './views/Home/DogDetail';
 import NewPage from './views/Home/NewPage';
+import EditPage from './views/Home/EditPage';
 
 
 function App() {
@@ -18,6 +19,9 @@ function App() {
           </Route>
           <Route exact path="/dogs/new">
             <NewPage />
+          </Route>
+          <Route exact path="/dogs/:id/edit">
+            <EditPage />
           </Route>
           <Route exact path="/dogs/:id" >
             <DogDetail />

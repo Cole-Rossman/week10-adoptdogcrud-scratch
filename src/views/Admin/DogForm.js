@@ -13,7 +13,6 @@ export default function DogForm({
   setImage,
   handleSubmit,
 }) {
-  console.log(name);
   return (
     <div className='dog-form'>
       <label>
