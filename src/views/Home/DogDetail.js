@@ -37,7 +37,6 @@ export default function DogDetail() {
 
   return (
     <>
-      {/* put in nav header here */}
       <div className='dog-detail'>
         {error && <p>{error}</p>}
         <h3>Meet {dog.name}</h3>
