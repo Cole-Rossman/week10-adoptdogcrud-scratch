@@ -14,7 +14,6 @@ export default function EditPage() {
   const [breed, setBreed] = useState('');
   const [image, setImage] = useState('');
   const [error, setError] = useState('');
-  const [success, setSuccess] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,8 +30,10 @@ export default function EditPage() {
   const handleSubmit = async () => {
     try {
       await updateDog({ id: id, name, age, bio, breed, image });
-      setSuccess(true);
-      history.push(`/dogs/${id}`);
+      history.push({
+        pathname: `/dogs/${id}`,
+        state: { setSuccess: true },
+      });
     } catch (e) {
       setError('Something went wrong, please try again.');
     }
@@ -42,7 +43,6 @@ export default function EditPage() {
     <div>
       <h1>Edit Dog Page</h1>
       {error && <p>{error}</p>}
-      {success && <h3>Great success!</h3>}
       <DogForm
         {...{
           name,

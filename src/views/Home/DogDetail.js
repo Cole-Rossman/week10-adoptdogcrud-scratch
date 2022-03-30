@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams, Link, useHistory } from 'react-router-dom';
+import { useParams, Link, useHistory, useLocation } from 'react-router-dom';
 import { deleteDog, fetchDogId } from '../../services/dogs';
 
 export default function DogDetail() {
@@ -8,6 +8,9 @@ export default function DogDetail() {
   const [dog, setDog] = useState(null);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
+  // const [success, setSuccess] = useState(false);
+  
+  const location = useLocation();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,6 +18,7 @@ export default function DogDetail() {
         const dogData = await fetchDogId(id);
         setDog(dogData);
         setLoading(false);
+        // setSuccess(true);
       } catch (e) {
         setError('Something went wrong, please try again.');
       }
@@ -39,6 +43,7 @@ export default function DogDetail() {
     <>
       <div className='dog-detail'>
         {error && <p>{error}</p>}
+        {location.state?.setSuccess && <p>Dog updated</p>}
         <h3>Meet {dog.name}</h3>
         <img className='dog-image' width="350" height="400" src={dog.image}/>
         <p>
