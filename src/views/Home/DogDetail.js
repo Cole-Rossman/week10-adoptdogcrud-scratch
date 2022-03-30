@@ -2,13 +2,12 @@ import { useEffect, useState } from 'react';
 import { useParams, Link, useHistory, useLocation } from 'react-router-dom';
 import { deleteDog, fetchDogId } from '../../services/dogs';
 
-export default function DogDetail() {
+export default function DogDetail({ currentUser }) {
 
   const { id } = useParams();
   const [dog, setDog] = useState(null);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
-  // const [success, setSuccess] = useState(false);
   
   const location = useLocation();
 
@@ -50,10 +49,14 @@ export default function DogDetail() {
           {dog.name} is a {dog.age} year old {dog.breed}.
         </p>
         <p>{dog.bio}</p>
-        <Link to={`/dogs/${id}/edit`}>
-          <button>Edit Dog</button>
-        </Link>
-        <button onClick={handleDelete}>Delete Dog</button>
+        {currentUser && (
+          <>
+            <Link to={`/dogs/${id}/edit`}>
+              <button>Edit Dog</button>
+            </Link>
+            <button onClick={handleDelete}>Delete Dog</button>
+          </>
+        )}
       </div>
     </>
   );

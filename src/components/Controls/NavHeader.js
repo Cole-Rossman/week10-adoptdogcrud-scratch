@@ -28,7 +28,7 @@ export default function NavHeader({ currentUser, setCurrentUser }) {
           )}
         </div>
         <div>
-          {!currentUser && (
+          {currentUser && (
             <li>
               <NavLink to="/dogs/new">Admin</NavLink>
             </li>

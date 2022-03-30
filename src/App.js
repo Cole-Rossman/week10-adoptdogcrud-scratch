@@ -32,7 +32,7 @@ function App() {
             <EditPage />
           </Route>
           <Route exact path="/dogs/:id" >
-            <DogDetail />
+            <DogDetail currentUser={currentUser} />
           </Route>
         </Switch>
       </div>
