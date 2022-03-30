@@ -1,0 +1,21 @@
+.dog-card {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 30px;
+    border: 3px black solid;
+    height: 350px;
+    width: 380px;
+    margin: 20px;
+}
+
+.dog-image {
+    border: 2px black solid;
+}
+
+.dogs-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 20px;
+}
