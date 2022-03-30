@@ -42,7 +42,7 @@ export default function DogDetail() {
         <h3>Meet {dog.name}</h3>
         <img className='dog-image' width="350" height="400" src={dog.image}/>
         <p>
-          {dog.name} is an {dog.age} year old {dog.breed}.
+          {dog.name} is a {dog.age} year old {dog.breed}.
         </p>
         <p>{dog.bio}</p>
         <Link to={`/dogs/${id}/edit`}>
