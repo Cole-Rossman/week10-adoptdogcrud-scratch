@@ -37,8 +37,10 @@ export default function NavHeader({ currentUser, setCurrentUser }) {
       </ul>
       {currentUser && (
         <ul>
-          <li>{currentUser}</li>
-          <li className='logout' onClick={handleLogout}>Logout</li>
+          <li>
+            <p>User: {currentUser}</p>
+          </li>
+          <button className='logout' onClick={handleLogout}>Logout</button>
         </ul>
       )}
     </div>

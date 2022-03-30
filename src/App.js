@@ -9,6 +9,7 @@ import NewPage from './views/Home/NewPage';
 import EditPage from './views/Home/EditPage';
 import { getUser } from './services/users';
 import Auth from './views/Auth';
+import { Redirect } from 'react-router-dom';
 
 
 function App() {
@@ -26,10 +27,10 @@ function App() {
             <Auth setCurrentUser={setCurrentUser} />
           </Route>
           <Route exact path="/dogs/new">
-            <NewPage />
+            {currentUser ? <NewPage /> : <Redirect to="/auth" />}
           </Route>
           <Route exact path="/dogs/:id/edit">
-            <EditPage />
+            {currentUser ? <EditPage /> : <Redirect to="/auth" />}
           </Route>
           <Route exact path="/dogs/:id" >
             <DogDetail currentUser={currentUser} />

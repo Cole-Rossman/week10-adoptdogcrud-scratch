@@ -17,7 +17,6 @@ export default function DogDetail({ currentUser }) {
         const dogData = await fetchDogId(id);
         setDog(dogData);
         setLoading(false);
-        // setSuccess(true);
       } catch (e) {
         setError('Something went wrong, please try again.');
       }
